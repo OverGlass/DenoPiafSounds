@@ -6,5 +6,5 @@ import mp3ToZip from "./convert.ts";
 const app = new Application();
 app.use(cors());
 
-app.post("/convert", mp3ToZip).start({ port: 8080 });
+app.post("/", mp3ToZip).start({ port: 8080 });
 console.log("server running");

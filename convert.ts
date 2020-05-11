@@ -13,16 +13,13 @@ const convert: HandlerFunc = async (c) => {
     const piafname = sounds.piafname.split(" ").join("_");
     Deno.mkdirSync("./tmp");
     Deno.mkdirSync("./tmp/cripiaf");
-    const urls = sounds.urls.filter((url, i) => {
-      const domain = url.split("/")[2];
-      return domain === "www.oiseaux.net";
-    });
-
+    const urls = sounds.urls;
     if (urls.length > 0) {
       const promises = urls.map(async (url, i) => {
         await Deno.run({
           cmd: [
             "curl",
+            "-L",
             "-o",
             `${cwd}/tmp/cripiaf/${piafname}0${i + 1}.mp3`,
             `${url}`,
