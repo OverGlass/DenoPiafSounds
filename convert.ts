@@ -21,7 +21,7 @@ const convert: HandlerFunc = async (c) => {
             "curl",
             "-L",
             "-o",
-            `${cwd}/tmp/cripiaf/${piafname}0${i + 1}.mp3`,
+            `${cwd}/tmp/cripiaf/${piafname}-0${i + 1}.mp3`,
             `${url}`,
           ],
         }).status();
